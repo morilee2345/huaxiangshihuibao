@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Paintbrush, ArrowUp } from 'lucide-react';
-import { motion } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
+import { createPortal } from 'react-dom';
 import { GlowCard } from './spotlight-card';
 
 export function Header({ theme, toggleTheme }: { theme: string, toggleTheme: () => void }) {
@@ -106,23 +107,51 @@ export function Section({ id, tag, title, desc, children, className = "" }: any)
     );
 }
 
-export function ImageFrame({ title, desc, icon: Icon, src, hoverSrc, alt, className = "" }: any) {
+export function ImageFrame({ title, desc, icon: Icon, src, hoverSrc, alt, className = "", enableZoom = false }: any) {
+   const [isOpen, setIsOpen] = useState(false);
+
    return (
-     <GlowCard customSize={true} glowColor="green" className={`flex flex-col justify-center items-center h-[340px] rounded-2xl bg-bg-card transition-all duration-300 hover:border-accent shadow-xl group overflow-hidden relative ${className}`}>
-        {src ? (
-          <>
-            {hoverSrc && <img src={hoverSrc} alt={`${alt || title} - Revealed`} className="absolute inset-0 w-full h-full object-cover z-0" />}
-            <img src={src} alt={alt || title} className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out ${hoverSrc ? 'z-10 group-hover:opacity-0' : 'z-0'}`} />
-          </>
-        ) : (
-          <>
-            {Icon && <Icon className="w-[44px] h-[44px] text-text-mute mb-[15px] transition-transform duration-500 group-hover:scale-110 relative z-10" />}
-            <div className="absolute -top-24 -right-24 w-64 h-64 bg-accent/10 rounded-full blur-[100px] pointer-events-none"></div>
-            <div className="font-title text-sm tracking-tight font-semibold text-text-main mb-2 z-10 relative">{title}</div>
-            <div className="text-xs text-text-sub max-w-[80%] text-center z-10 relative leading-relaxed">{desc}</div>
-          </>
-        )}
-     </GlowCard>
+     <>
+       <GlowCard customSize={true} glowColor="green" className={`flex flex-col justify-center items-center h-[340px] rounded-2xl bg-bg-card transition-all duration-300 hover:border-accent shadow-xl group overflow-hidden relative ${className} ${enableZoom && src ? 'cursor-pointer' : ''}`} onClick={() => enableZoom && src && setIsOpen(true)}>
+          {src ? (
+            <>
+              {hoverSrc && <img src={hoverSrc} alt={`${alt || title} - Revealed`} className="absolute inset-0 w-full h-full object-cover z-0" />}
+              <img src={src} alt={alt || title} className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out ${hoverSrc ? 'z-10 group-hover:opacity-0' : 'z-0'}`} />
+            </>
+          ) : (
+            <>
+              {Icon && <Icon className="w-[44px] h-[44px] text-text-mute mb-[15px] transition-transform duration-500 group-hover:scale-110 relative z-10" />}
+              <div className="absolute -top-24 -right-24 w-64 h-64 bg-accent/10 rounded-full blur-[100px] pointer-events-none"></div>
+              <div className="font-title text-sm tracking-tight font-semibold text-text-main mb-2 z-10 relative">{title}</div>
+              <div className="text-xs text-text-sub max-w-[80%] text-center z-10 relative leading-relaxed">{desc}</div>
+            </>
+          )}
+       </GlowCard>
+
+       {enableZoom && src && createPortal(
+         <AnimatePresence>
+           {isOpen && (
+             <motion.div
+               initial={{ opacity: 0 }}
+               animate={{ opacity: 1 }}
+               exit={{ opacity: 0 }}
+               onClick={() => setIsOpen(false)}
+               className="fixed inset-0 z-[9999] bg-black/90 flex items-center justify-center p-4 cursor-zoom-out"
+             >
+               <motion.img
+                 initial={{ scale: 0.9 }}
+                 animate={{ scale: 1 }}
+                 exit={{ scale: 0.9 }}
+                 src={src}
+                 alt={alt || title}
+                 className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
+               />
+             </motion.div>
+           )}
+         </AnimatePresence>,
+         document.body
+       )}
+     </>
    );
 }
 
@@ -140,9 +169,10 @@ export function AcademicCard({ num, title, icon: Icon, desc, className = "", tit
    );
 }
 
-export function TiltImageFrame({ src, alt, className = "" }: any) {
+export function TiltImageFrame({ src, alt, className = "", enableZoom = true }: any) {
   const [rotateX, setRotateX] = useState(0);
   const [rotateY, setRotateY] = useState(0);
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
       const rect = e.currentTarget.getBoundingClientRect();
@@ -173,9 +203,10 @@ export function TiltImageFrame({ src, alt, className = "" }: any) {
           <motion.div
               onMouseMove={handleMouseMove}
               onMouseLeave={handleMouseLeave}
+              onClick={() => enableZoom && src && setIsOpen(true)}
               animate={{ rotateX, rotateY }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              className="w-full h-[340px] rounded-2xl overflow-hidden relative shadow-2xl border border-border-subtle cursor-pointer"
+              className={`w-full h-[340px] rounded-2xl overflow-hidden relative shadow-2xl border border-border-subtle ${enableZoom ? 'cursor-pointer' : ''}`}
               style={{ transformStyle: "preserve-3d" }}
           >
               <img src={src} alt={alt} className="w-full h-full object-cover" />
@@ -193,6 +224,30 @@ export function TiltImageFrame({ src, alt, className = "" }: any) {
                   }}
               />
           </motion.div>
+
+          {enableZoom && src && createPortal(
+              <AnimatePresence>
+                  {isOpen && (
+                      <motion.div
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
+                          onClick={() => setIsOpen(false)}
+                          className="fixed inset-0 z-[9999] bg-black/90 flex items-center justify-center p-4 cursor-zoom-out"
+                      >
+                          <motion.img
+                              initial={{ scale: 0.9 }}
+                              animate={{ scale: 1 }}
+                              exit={{ scale: 0.9 }}
+                              src={src}
+                              alt={alt}
+                              className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
+                          />
+                      </motion.div>
+                  )}
+              </AnimatePresence>,
+              document.body
+          )}
       </div>
   );
 }

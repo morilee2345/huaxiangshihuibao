@@ -79,7 +79,7 @@ export default function Part1Research() {
                 <p>汉画像石是汉代墓葬、祠堂等空间中的重要图像载体。它不仅是一种装饰图像，也承载着叙事、礼仪、身份表达和审美功能。通过画像石中的人物、器物、车马、舞蹈和游戏场景，可以看到汉代社会生活、礼仪秩序和精神观念的视觉化表达。</p>
                 <p className="mt-[15px]"><strong>南阳汉画像石地域特征：</strong>它的题材广泛，构图饱满，线刻有力，人物造型多以剪影化、平面化方式呈现。对于当代视觉设计来说，南阳汉画像石不仅是极其珍贵的历史图像资料，也可以成为数字动画、影像设计和文创转译的重要视觉资源。</p>
             </div>
-            <ImageFrame icon={Image} src="https://i.postimg.cc/9X6wQ4ft/Chat-GPT-Image-2026nian6yue7ri-21-58-36.png" title="画像石历史拓片参考图" desc="建议上传：南阳独山或汉画馆珍藏的经典乐舞车骑画像石拓片，突显石质风化剥蚀感。 [南阳汉画像石拓片图片]" />
+            <ImageFrame icon={Image} src="https://i.postimg.cc/9X6wQ4ft/Chat-GPT-Image-2026nian6yue7ri-21-58-36.png" title="画像石历史拓片参考图" desc="建议上传：南阳独山或汉画馆珍藏的经典乐舞车骑画像石拓片，突显石质风化剥蚀感。 [南阳汉画像石拓片图片]" enableZoom={true} />
         </div>
       </Section>
 

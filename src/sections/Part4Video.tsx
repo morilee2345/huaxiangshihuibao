@@ -1,5 +1,5 @@
 import React from 'react';
-import { Section, ImageFrame, AcademicCard } from '../components/UI';
+import { Section, ImageFrame, TiltImageFrame, AcademicCard } from '../components/UI';
 import { Image, GraduationCap, Code, Lightbulb } from 'lucide-react';
 
 export default function Part4Video() {
@@ -33,14 +33,14 @@ export default function Part4Video() {
                  <p><strong>严谨的学术求证：</strong>视频方案杜绝空泛的主观想象。我们通过大量阅读地方馆藏图像学报告、对南阳汉画馆和公开学术资料中所展示的大量乐舞、百戏拓片进行细节分类归拢。</p>
                  <p className="mt-[15px]"><strong>信息提取重点：</strong>精细提炼图像边缘，剔除杂乱的无规则物理脏痕，精准把握古朴人物的肢体躯干重心点、手、箭、壶口、车轮中心等的坐标，以便后续动作骨骼绑定时使用。</p>
              </div>
-             <ImageFrame icon={Image} title="原始拓片文献搜集与标注分析图" desc="建议上传：在文献照片上进行红色动作向量、几何道具标注的分析解析图。 [调研标记图]" />
+             <TiltImageFrame src="https://i.postimg.cc/T3yhng37/Chat-GPT-Image-2026nian6yue7ri-23-00-39.png" alt="原始拓片文献搜集与标注分析图" />
          </div>
       </Section>
 
       {/* Section 19: 流程二 */}
       <Section id="step-two" tag="WORKFLOW STEP 02" title="流程二：剪影化人物造型的骨架设计确定">
          <div className="grid grid-cols-1 md:grid-cols-[1.2fr_1fr] gap-[60px] items-center">
-             <ImageFrame icon={Image} title="人物骨骼绑定与剪影提取图" desc="建议上传：黑色平面化人物，配以二维关节控制点（2D Joint Points）的三维骨架示意。 [人物形象设计图]" className="order-2 md:order-1" />
+             <TiltImageFrame src="https://i.postimg.cc/bwGd1kwR/Chat-GPT-Image-2026nian6yue7ri-23-04-52.png" alt="人物骨骼绑定与剪影提取图" className="order-2 md:order-1" />
              <div className="order-1 md:order-2">
                  <p>为了保持汉代石刻最核心的平面化、剪影式视觉本源，我们绝不采用复杂的三维精细写实雕刻，而是在提取轮廓后，将人物造型设计为极富古意与风骨的<strong>平面黑色高反差剪影</strong>。</p>
                  <p className="mt-[15px]"><strong>运动节点重构：</strong>虽然外在造型保持平面，但核心的动作结构点是完备的。针对长袖、鼓击、投掷动作，建立平面控制关节，使剪影动作流畅、准确，同时不失古拙厚重的力度美感。</p>
@@ -55,14 +55,14 @@ export default function Part4Video() {
                  <p><strong>拒绝无菌的现代渐变：</strong>视频背景风格一律采用黑白多层线性与径向渐变。在此基础上，加入特制的磨损噪点与流动的微粒滤镜，模拟经历漫长岁月风化浸润的石质纹路。</p>
                  <p className="mt-[15px]"><strong>主客关系突出：</strong>这种设计并不需要刻画出具体拼接的墙面石砖缝隙。虚化而厚重斑驳的背景能够像母体一样将剪影角色与自发光的线条衬托得更加生动，同时也突出了时空的深度感。</p>
              </div>
-             <ImageFrame icon={Image} title="斑驳风化视频背景原画样例" desc="建议上传：一张黑白重度颗粒渐变，带有风化斑驳效果的高清底图原画。 [风化背景图]" />
+             <TiltImageFrame src="https://i.postimg.cc/pXcp9qR6/Chat-GPT-Image-2026nian6yue7ri-23-06-49.png" alt="斑驳风化视频背景原画样例" />
          </div>
       </Section>
 
       {/* Section 21: 流程四 */}
       <Section id="step-four" tag="WORKFLOW STEP 04" title="流程四：汉族传统舞蹈复刻与简化重构">
          <div className="grid grid-cols-1 md:grid-cols-[1.2fr_1fr] gap-[60px] items-center">
-             <ImageFrame icon={Image} title="舞蹈演员动作动捕或复刻过程照片" desc="建议上传：舞蹈演员身披水袖在排练室复现汉舞动作的对比分镜图。 [舞蹈复刻分镜图]" className="order-2 md:order-1" />
+             <TiltImageFrame src="https://i.postimg.cc/7YtfCmwR/Chat-GPT-Image-2026nian6yue7ri-23-09-21.png" alt="舞蹈演员动作动捕或复刻过程照片" className="order-2 md:order-1" />
              <div className="order-1 md:order-2">
                  <p><strong>非遗重现与转化：</strong>为了使动作生动感人，我们参照汉族长袖舞、踏鼓百戏等经典民间舞蹈，记录专业舞蹈演员的甩袖、跨步、转腰动作，并分析重心转移弧度。</p>
                  <p className="mt-[15px]"><strong>古迹契合度修正：</strong>采集到的舞蹈动作必须根据拓片中人物夸张、扁平的姿势特征进行修正和“边缘刀削化”限制，从而让现代舞蹈自然而妥帖地在汉砖剪影上“活”过来。</p>
@@ -81,7 +81,7 @@ export default function Part4Video() {
                      <li>六博：摄像机缓慢、沉重地从远景推向棋盘，刻画对视的沉默压迫力。</li>
                  </ul>
              </div>
-             <ImageFrame icon={Image} title="动态转译与特效运动分镜草图" desc="建议上传：带有金砂运动线条、时空穿梭感的视频分镜剪辑板。 [视频分镜剪辑图]" />
+             <TiltImageFrame src="https://i.postimg.cc/8PXjFtN3/Chat-GPT-Image-2026nian6yue7ri-23-20-55.png" alt="动态转译与特效运动分镜草图" />
          </div>
       </Section>
 
