@@ -36,6 +36,7 @@ export default function Part1Research() {
              <div className="flex flex-col gap-2 lg:text-right border-l-2 lg:border-l-0 lg:border-r-2 border-accent pl-4 lg:pl-0 lg:pr-4 mt-4 lg:mt-0 py-1">
                 <p className="text-[13px] text-text-main font-semibold tracking-[0.2em] font-title">汇报人：谢东东</p>
                 <p className="text-[13px] text-text-mute font-mono tracking-widest">学号：202533109014</p>
+                <p className="text-[13px] text-text-sub font-semibold tracking-[0.2em] font-title">指导老师：徐慧</p>
              </div>
           </div>
           <div className="flex flex-wrap gap-[40px] font-title text-[15px] text-text-mute border-t border-border-subtle pt-[30px] w-full mt-4">

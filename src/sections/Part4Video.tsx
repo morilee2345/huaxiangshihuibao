@@ -65,6 +65,7 @@ export default function Part4Video() {
              <TiltImageFrame src="https://i.postimg.cc/7YtfCmwR/Chat-GPT-Image-2026nian6yue7ri-23-09-21.png" alt="舞蹈演员动作动捕或复刻过程照片" className="order-2 md:order-1" />
              <div className="order-1 md:order-2">
                  <p><strong>非遗重现与转化：</strong>为了使动作生动感人，我们参照汉族长袖舞、踏鼓百戏等经典民间舞蹈，记录专业舞蹈演员的甩袖、跨步、转腰动作，并分析重心转移弧度。</p>
+                 <p className="mt-[15px]"><strong>舞蹈动作获取：</strong>通过对汉代乐舞的图像解构进行动作演绎。在具体实践中，既涵盖了由真人模特、编舞演员在排练室重现舞姿的“实拍视频模式”，也包含了针对互联网上珍贵汉舞学术视频等多源素材进行动态解析的“视频复刻模式”，实现了多元轨迹的技术还原。</p>
                  <p className="mt-[15px]"><strong>古迹契合度修正：</strong>采集到的舞蹈动作必须根据拓片中人物夸张、扁平的姿势特征进行修正和“边缘刀削化”限制，从而让现代舞蹈自然而妥帖地在汉砖剪影上“活”过来。</p>
              </div>
          </div>

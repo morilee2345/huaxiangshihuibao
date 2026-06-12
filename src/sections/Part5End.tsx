@@ -29,7 +29,7 @@ export default function Part5End() {
                 <h1 className="text-4xl font-semibold text-text-main mb-8">
                   以上是本次汇报的全部内容 <br />
                   <span className="text-4xl md:text-[6rem] font-bold mt-1 leading-none text-accent">
-                    感谢您的聆听
+                    感谢您的观看
                   </span>
                 </h1>
               </>

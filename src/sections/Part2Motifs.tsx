@@ -77,7 +77,7 @@ export default function Part2Motifs() {
             </div>
             <ImageFrame 
                icon={Image} 
-               src="https://i.postimg.cc/BZ2NsP5K/5.png"
+               src="https://i.postimg.cc/9QXgVYFp/5.png"
                hoverSrc="https://i.postimg.cc/SNp8GZMK/han-hua-xiang-shi19.png"
                title="【六博】视线拉扯透视图预留" 
                desc="建议上传：以棋盘为第一视角发散而出的对弈线刻线索。 [六博心理视线分析图]" 
